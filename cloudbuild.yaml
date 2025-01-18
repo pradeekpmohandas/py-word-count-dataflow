@@ -15,7 +15,9 @@ steps:
           --region ${_REGION} \
           --temp_location gs://${_BUCKET}/temp/ \
           --staging_location gs://${_BUCKET}/staging/ \
-          --template_location gs://${_BUCKET}/templates/wordcount_template
+          --template_location gs://${_BUCKET}/templates/wordcount_template \
+          --input gs://${_BUCKET}/IO/input.txt \
+          --output gs://${_BUCKET}/IO/output.txt 
 
 
 options:
