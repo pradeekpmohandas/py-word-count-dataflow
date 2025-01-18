@@ -9,7 +9,7 @@ steps:
     id: 'Create Dataflow Template'
     args:
       - 'python'
-      - 'word_count.py'  # Replace with your script name
+      - 'wordCount.py'  # Replace with your script name
       - '--runner'
       - 'DataflowRunner'
       - '--project'
