@@ -1,0 +1,20 @@
+steps:
+  - name: 'python:3.9'
+    id: 'Install and Run Dataflow Pipeline'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        # Install dependencies from requirements.txt
+        pip install -r requirements.txt
+
+        # Check installed packages
+        pip show apache-beam
+
+        # Run the Dataflow pipeline
+        python wordCount.py  # Replace with your script name
+
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY

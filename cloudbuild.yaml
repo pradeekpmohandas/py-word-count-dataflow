@@ -1,6 +1,6 @@
 steps:
   - name: 'python:3.9'
-    id: 'Install and Run Dataflow Pipeline'
+    id: 'Install Dependencies and Create Dataflow Template'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -8,12 +8,14 @@ steps:
         # Install dependencies from requirements.txt
         pip install -r requirements.txt
 
-        # Check installed packages
-        pip show apache-beam
-
-        # Run the Dataflow pipeline
-        python wordCount.py  # Replace with your script name
-
+        # Create the Dataflow Template
+        python wordCount.py \
+          --runner DataflowRunner \
+          --project ${_PROJECT_ID} \
+          --region ${_REGION} \
+          --temp_location gs://${_BUCKET}/temp/ \
+          --staging_location gs://${_BUCKET}/staging/ \
+          --template_location gs://${_BUCKET}/templates/wordcount_template
 
 
 options:
