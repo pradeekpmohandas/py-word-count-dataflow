@@ -15,7 +15,7 @@ steps:
           --region ${_REGION} \
           --temp_location gs://${_BUCKET}/temp/ \
           --staging_location gs://${_BUCKET}/staging/ \
-          --template_location gs://${_BUCKET}/templates/wordcount_template 
+          --template_location gs://${_BUCKET}/templates/wordcount_template_with_parameter
 
 
 options:
