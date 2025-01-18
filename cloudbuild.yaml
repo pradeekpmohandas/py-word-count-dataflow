@@ -12,3 +12,6 @@ steps:
     args:
       - 'wordCount.py'  # Replace with your script name
 
+
+options:
+  logging: CLOUD_LOGGING_ONLY
