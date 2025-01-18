@@ -5,19 +5,17 @@ steps:
     args:
       - '-c'
       - |
-        # Install dependencies from requirements.txt
+        # Step 1: Install dependencies from requirements.txt
         pip install -r requirements.txt
 
-        # Create the Dataflow Template
+        # Step 2: Create the Dataflow Template
         python wordCount.py \
           --runner DataflowRunner \
           --project ${_PROJECT_ID} \
           --region ${_REGION} \
           --temp_location gs://${_BUCKET}/temp/ \
           --staging_location gs://${_BUCKET}/staging/ \
-          --template_location gs://${_BUCKET}/templates/wordcount_template \
-          --input gs://${_BUCKET}/IO/input.txt \
-          --output gs://${_BUCKET}/IO/output.txt 
+          --template_location gs://${_BUCKET}/templates/wordcount_template 
 
 
 options:
