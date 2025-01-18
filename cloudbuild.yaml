@@ -1,21 +1,19 @@
 steps:
-  # Step 1: Install dependencies from requirements.txt
   - name: 'python:3.9'
-    id: 'Install Dependencies'
-    entrypoint: 'pip'
-    args: ['install', '-r', 'requirements.txt']
-      
-  - name: 'python:3.9'
-    id: 'Check Installed Packages'
-    entrypoint: 'pip'
-    args: ['show', 'apache-beam']
-
-  # Step 2: Run the Dataflow pipeline to create the template
-  - name: 'python:3.9'
-    id: 'Run Dataflow Pipeline'
-    entrypoint: 'python'
+    id: 'Install and Run Dataflow Pipeline'
+    entrypoint: 'bash'
     args:
-      - 'wordCount.py'  # Replace with your script name
+      - '-c'
+      - |
+        # Install dependencies from requirements.txt
+        pip install -r requirements.txt
+
+        # Check installed packages
+        pip show apache-beam
+
+        # Run the Dataflow pipeline
+        python wordCount.py  # Replace with your script name
+
 
 
 options:
