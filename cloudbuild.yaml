@@ -1,0 +1,6 @@
+steps:
+  # Step 1: Install dependencies
+  - name: 'python:3.9'
+    id: 'Install Dependencies'
+    entrypoint: 'pip'
+    args: ['install', '-r', 'requirements.txt']
