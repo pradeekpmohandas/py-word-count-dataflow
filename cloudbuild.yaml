@@ -4,6 +4,11 @@ steps:
     id: 'Install Dependencies'
     entrypoint: 'pip'
     args: ['install', '-r', 'requirements.txt']
+      
+  - name: 'python:3.9'
+    id: 'Check Installed Packages'
+    entrypoint: 'pip'
+    args: ['show', 'apache-beam']
 
   # Step 2: Run the Dataflow pipeline to create the template
   - name: 'python:3.9'
